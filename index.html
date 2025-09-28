@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hirelance — Tech-Only Freelance Platform</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Boxicons -->
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    .faq-item button { transition: color 0.3s; }
+    .faq-item button:hover { color: #8b5cf6; }
+  </style>
+</head>
+<body class="bg-gradient-to-b from-purple-50 to-white text-gray-800">
+
+  <!-- Mobile Menu (Hidden by default) -->
+  <div id="mobileMenu" class="fixed inset-0 bg-white z-50 flex flex-col p-6 transform translate-x-full transition-transform duration-300 ease-in-out">
+    <div class="flex justify-between items-center mb-8">
+      <h1 class="text-xl font-bold text-purple-700">Hirelance</h1>
+      <button id="closeMenu" class="text-2xl">&times;</button>
+    </div>
+    <nav class="flex flex-col space-y-6 text-lg">
+      <a href="#how-it-works" class="hover:text-purple-600">How It Works</a>
+      <a href="#why" class="hover:text-purple-600">Why Hirelance</a>
+      <a href="#testimonials" class="hover:text-purple-600">Testimonials</a>
+      <a href="#faq" class="hover:text-purple-600">FAQ</a>
+      <a href="#" class="px-4 py-2 bg-purple-600 text-white rounded-lg text-center">Sign In</a>
+    </nav>
+  </div>
+
+  <!-- Overlay -->
+  <div id="overlay" class="fixed inset-0 bg-black opacity-50 z-40 hidden"></div>
+
+  <!-- Navbar -->
+  <nav class="bg-white shadow-sm sticky top-0 z-30">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="flex items-center space-x-2">
+        <i class='bx bxl-discord text-purple-600 text-2xl'></i>
+        <h1 class="text-xl font-bold text-purple-700">Hirelance</h1>
+      </div>
+
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="#how-it-works" class="hover:text-purple-600 font-medium">How It Works</a>
+        <a href="#why" class="hover:text-purple-600 font-medium">Why Hirelance</a>
+        <a href="#testimonials" class="hover:text-purple-600 font-medium">Testimonials</a>
+        <a href="#faq" class="hover:text-purple-600 font-medium">FAQ</a>
+      </div>
+
+      <div class="hidden md:flex items-center space-x-4">
+        <button onclick="window.location.href='#'" class="px-4 py-2 font-medium hover:text-purple-600">Sign In</button>
+        <button onclick="window.location.href='#'" class="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 font-medium transition">Sign Up</button>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="menuBtn" class="md:hidden text-2xl">
+        <i class='bx bx-menu'></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="py-16 md:py-24 px-4 bg-gradient-to-r from-purple-600 via-pink-500 to-purple-700 text-white">
+    <div class="container mx-auto flex flex-col md:flex-row items-center gap-10">
+      <div class="md:w-1/2">
+        <h1 class="text-3xl md:text-5xl font-extrabold leading-tight mb-4">
+          Hire <span class="underline decoration-white">Tech Talent</span> — Securely & Efficiently
+        </h1>
+        <p class="text-lg mb-8 opacity-95 max-w-lg">
+          Hirelance is the only freelance platform built exclusively for tech professionals — with end-to-end encrypted messaging, milestone payments, and verified portfolios.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <button onclick="window.location.href='#jobs'" class="px-6 py-3 bg-white text-purple-700 font-semibold rounded-lg shadow hover:bg-gray-100 transition">
+            Browse Jobs
+          </button>
+          <button onclick="window.location.href='#freelancer'" class="px-6 py-3 border-2 border-white text-white font-semibold rounded-lg hover:bg-white/10 transition">
+            Become a Freelancer
+          </button>
+        </div>
+      </div>
+      <div class="md:w-1/2 flex justify-center">
+        <div class="relative">
+          <img src="https://via.placeholder.com/450x450?text=Tech+Freelancer" alt="Tech Professional" class="rounded-2xl shadow-2xl border-4 border-white" />
+          <div class="absolute -top-4 -right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full flex items-center">
+            <i class='bx bxs-badge-check mr-1'></i> Verified
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="py-12 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div>
+          <div class="text-3xl font-bold text-purple-600">10K+</div>
+          <div class="text-gray-600">Freelancers</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-purple-600">5K+</div>
+          <div class="text-gray-600">Active Jobs</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-purple-600">$20M+</div>
+          <div class="text-gray-600">Paid Securely</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-purple-600">99.8%</div>
+          <div class="text-gray-600">Satisfaction</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section id="how-it-works" class="py-16 px-4 bg-purple-50">
+    <div class="container mx-auto max-w-5xl">
+      <h2 class="text-3xl font-bold text-center mb-12">How Hirelance Works</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Step 1 -->
+        <div class="bg-white p-6 rounded-xl shadow text-center hover:shadow-md transition">
+          <div class="w-14 h-14 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class='bx bx-user-check text-2xl text-purple-600'></i>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Sign Up & Verify</h3>
+          <p class="text-gray-600">Choose your role (Client or Freelancer), verify your identity, and set up encryption keys.</p>
+        </div>
+        <!-- Step 2 -->
+        <div class="bg-white p-6 rounded-xl shadow text-center hover:shadow-md transition">
+          <div class="w-14 h-14 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class='bx bx-briefcase-alt text-2xl text-purple-600'></i>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Post or Apply</h3>
+          <p class="text-gray-600">Clients post tech jobs. Freelancers apply with proposals and portfolios.</p>
+        </div>
+        <!-- Step 3 -->
+        <div class="bg-white p-6 rounded-xl shadow text-center hover:shadow-md transition">
+          <div class="w-14 h-14 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class='bx bx-lock text-2xl text-purple-600'></i>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Work & Get Paid</h3>
+          <p class="text-gray-600">Collaborate via E2EE chat, track milestones, and receive secure payments.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories -->
+  <section id="jobs" class="py-16 px-4 bg-white">
+    <div class="container mx-auto max-w-6xl">
+      <h2 class="text-3xl font-bold text-center mb-4">Specialized Tech Roles</h2>
+      <p class="text-gray-600 text-center mb-12">Only verified tech professionals. No generalists.</p>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="text-center p-4 rounded-lg hover:bg-purple-50 transition">
+          <i class='bx bx-code-alt text-3xl text-purple-600 mb-3'></i>
+          <h4 class="font-semibold">Web Development</h4>
+        </div>
+        <div class="text-center p-4 rounded-lg hover:bg-purple-50 transition">
+          <i class='bx bxl-android text-3xl text-purple-600 mb-3'></i>
+          <h4 class="font-semibold">App Development</h4>
+        </div>
+        <div class="text-center p-4 rounded-lg hover:bg-purple-50 transition">
+          <i class='bx bx-brain text-3xl text-purple-600 mb-3'></i>
+          <h4 class="font-semibold">AI & ML</h4>
+        </div>
+        <div class="text-center p-4 rounded-lg hover:bg-purple-50 transition">
+          <i class='bx bx-data text-3xl text-purple-600 mb-3'></i>
+          <h4 class="font-semibold">Data Science</h4>
+        </div>
+        <div class="text-center p-4 rounded-lg hover:bg-purple-50 transition">
+          <i class='bx bx-cloud text-3xl text-purple-600 mb-3'></i>
+          <h4 class="font-semibold">Cloud Engineering</h4>
+        </div>
+        <div class="text-center p-4 rounded-lg hover:bg-purple-50 transition">
+          <i class='bx bx-palette text-3xl text-purple-600 mb-3'></i>
+          <h4 class="font-semibold">UI/UX Design</h4>
+        </div>
+        <div class="text-center p-4 rounded-lg hover:bg-purple-50 transition">
+          <i class='bx bx-shield text-3xl text-purple-600 mb-3'></i>
+          <h4 class="font-semibold">Cybersecurity</h4>
+        </div>
+        <div class="text-center p-4 rounded-lg hover:bg-purple-50 transition">
+          <i class='bx bx-server text-3xl text-purple-600 mb-3'></i>
+          <h4 class="font-semibold">DevOps</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Hirelance -->
+  <section id="why" class="py-16 px-4 bg-gradient-to-br from-purple-600 to-pink-600 text-white">
+    <div class="container mx-auto max-w-5xl text-center">
+      <h2 class="text-3xl font-bold mb-4">Why Hirelance Stands Out</h2>
+      <p class="max-w-2xl mx-auto mb-12 opacity-90">
+        We’re not just another freelance site. We’re built for tech, by tech — with privacy and trust at the core.
+      </p>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="p-6 bg-white/10 backdrop-blur-sm rounded-xl">
+          <i class='bx bx-lock-alt text-4xl mb-4'></i>
+          <h3 class="text-xl font-bold mb-2">End-to-End Encrypted Chat</h3>
+          <p>Your messages never touch our servers — only you and your collaborator can read them.</p>
+        </div>
+        <div class="p-6 bg-white/10 backdrop-blur-sm rounded-xl">
+          <i class='bx bx-envelope text-4xl mb-4'></i>
+          <h3 class="text-xl font-bold mb-2">Email Backup (Optional)</h3>
+          <p>Choose to auto-forward chat logs to your email for transparency and record-keeping.</p>
+        </div>
+        <div class="p-6 bg-white/10 backdrop-blur-sm rounded-xl">
+          <i class='bx bx-badge-check text-4xl mb-4'></i>
+          <h3 class="text-xl font-bold mb-2">Tech-Only Verification</h3>
+          <p>Every freelancer is vetted for real tech skills — no fake profiles or generic gigs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials" class="py-16 px-4 bg-white">
+    <div class="container mx-auto max-w-4xl">
+      <h2 class="text-3xl font-bold text-center mb-12">Trusted by Tech Teams Worldwide</h2>
+      <div id="testimonialSlider" class="relative overflow-hidden rounded-xl shadow-md bg-purple-50 p-6">
+        <div class="flex transition-transform duration-500 ease-in-out" id="sliderContainer">
+          <!-- Slide 1 -->
+          <div class="min-w-full px-4">
+            <div class="flex items-center mb-4">
+              <img src="https://via.placeholder.com/60?text=SK" alt="Sarah" class="rounded-full mr-4" />
+              <div>
+                <h4 class="font-bold">Sarah K.</h4>
+                <p class="text-sm text-gray-600">Startup Founder</p>
+              </div>
+            </div>
+            <p class="italic text-gray-700">
+              “The encrypted chat gave me confidence to share sensitive project specs. Found a brilliant React dev in 24 hours!”
+            </p>
+          </div>
+          <!-- Slide 2 -->
+          <div class="min-w-full px-4">
+            <div class="flex items-center mb-4">
+              <img src="https://via.placeholder.com/60?text=MT" alt="Mike" class="rounded-full mr-4" />
+              <div>
+                <h4 class="font-bold">Mike T.</h4>
+                <p class="text-sm text-gray-600">CTO, TechCorp</p>
+              </div>
+            </div>
+            <p class="italic text-gray-700">
+              “Milestone payments + E2EE messaging = perfect combo for enterprise-grade freelance work.”
+            </p>
+          </div>
+        </div>
+        <button id="prevBtn" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow">
+          <i class='bx bx-chevron-left text-purple-600'></i>
+        </button>
+        <button id="nextBtn" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow">
+          <i class='bx bx-chevron-right text-purple-600'></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-16 px-4 bg-purple-50">
+    <div class="container mx-auto max-w-3xl">
+      <h2 class="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+      <div class="space-y-4">
+        <div class="faq-item border-b pb-4">
+          <button class="flex justify-between items-center w-full text-left font-medium">
+            Is messaging really encrypted?
+            <i class='bx bx-chevron-down'></i>
+          </button>
+          <p class="mt-2 text-gray-600 hidden">Yes! Messages are encrypted in your browser using your public key and can only be decrypted by the recipient. We never store plaintext messages.</p>
+        </div>
+        <div class="faq-item border-b pb-4">
+          <button class="flex justify-between items-center w-full text-left font-medium">
+            How do I get paid as a freelancer?
+            <i class='bx bx-chevron-down'></i>
+          </button>
+          <p class="mt-2 text-gray-600 hidden">Clients fund milestones in escrow. Once you deliver and they approve, funds are released instantly via Stripe, Paystack, or Flutterwave.</p>
+        </div>
+        <div class="faq-item border-b pb-4">
+          <button class="flex justify-between items-center w-full text-left font-medium">
+            Can I backup chats to email?
+            <i class='bx bx-chevron-down'></i>
+          </button>
+          <p class="mt-2 text-gray-600 hidden">Yes! Enable “Email Backup” in Settings, and all new conversations will be forwarded to your inbox as encrypted PDFs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA + Newsletter -->
+  <section class="py-16 px-4 bg-gradient-to-r from-purple-700 to-pink-700 text-white">
+    <div class="container mx-auto text-center max-w-3xl">
+      <h2 class="text-3xl font-bold mb-4">Ready to Join the Future of Tech Freelancing?</h2>
+      <p class="mb-8 opacity-90">Get early access, exclusive tips, and platform updates.</p>
+      <div class="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
+        <input type="email" placeholder="Your email" class="px-4 py-3 rounded-lg w-full text-gray-800 focus:outline-none" />
+        <button class="px-6 py-3 bg-white text-purple-700 font-semibold rounded-lg hover:bg-gray-100 transition">
+          Subscribe
+        </button>
+      </div>
+      <p class="mt-4 text-sm opacity-75">No spam. Unsubscribe anytime.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12 px-4">
+    <div class="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div>
+        <div class="flex items-center space-x-2 mb-4">
+          <i class='bx bxl-discord text-2xl text-purple-400'></i>
+          <h4 class="text-xl font-bold">Hirelance</h4>
+        </div>
+        <p class="text-gray-400 text-sm">
+          A specialized, privacy-first freelance platform for tech professionals — built by Mikky Technology.
+        </p>
+      </div>
+      <div>
+        <h5 class="font-semibold mb-4">Platform</h5>
+        <ul class="space-y-2 text-sm text-gray-400">
+          <li><a href="#" class="hover:text-white">Jobs</a></li>
+          <li><a href="#" class="hover:text-white">Freelancers</a></li>
+          <li><a href="#" class="hover:text-white">How It Works</a></li>
+          <li><a href="#" class="hover:text-white">Pricing</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="font-semibold mb-4">Support</h5>
+        <ul class="space-y-2 text-sm text-gray-400">
+          <li><a href="#" class="hover:text-white">FAQ</a></li>
+          <li><a href="#" class="hover:text-white">Contact</a></li>
+          <li><a href="#" class="hover:text-white">Security</a></li>
+          <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="font-semibold mb-4">Connect</h5>
+        <div class="flex space-x-4 mb-4">
+          <a href="#" class="text-gray-400 hover:text-white"><i class='bx bxl-twitter text-xl'></i></a>
+          <a href="#" class="text-gray-400 hover:text-white"><i class='bx bxl-linkedin text-xl'></i></a>
+          <a href="#" class="text-gray-400 hover:text-white"><i class='bx bxl-github text-xl'></i></a>
+          <a href="#" class="text-gray-400 hover:text-white"><i class='bx bxl-whatsapp text-xl'></i></a>
+        </div>
+        <p class="text-sm text-gray-400">Support via WhatsApp: +234 708 303 4571</p>
+      </div>
+    </div>
+    <div class="mt-10 pt-6 border-t border-gray-800 text-center text-sm text-gray-500">
+      &copy; 2025 Hirelance by Mikky Technology. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Mobile Menu Toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const closeMenu = document.getElementById('closeMenu');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const overlay = document.getElementById('overlay');
+
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.remove('translate-x-full');
+      overlay.classList.remove('hidden');
+    });
+
+    closeMenu.addEventListener('click', () => {
+      mobileMenu.classList.add('translate-x-full');
+      overlay.classList.add('hidden');
+    });
+
+    overlay.addEventListener('click', () => {
+      mobileMenu.classList.add('translate-x-full');
+      overlay.classList.add('hidden');
+    });
+
+    // Smooth Scroll for Anchor Links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          window.scrollTo({
+            top: target.offsetTop - 80,
+            behavior: 'smooth'
+          });
+          // Close mobile menu if open
+          mobileMenu.classList.add('translate-x-full');
+          overlay.classList.add('hidden');
+        }
+      });
+    });
+
+    // FAQ Accordion
+    document.querySelectorAll('.faq-item button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const answer = btn.nextElementSibling;
+        const icon = btn.querySelector('i');
+        if (answer.classList.contains('hidden')) {
+          answer.classList.remove('hidden');
+          icon.classList.remove('bx-chevron-down');
+          icon.classList.add('bx-chevron-up');
+        } else {
+          answer.classList.add('hidden');
+          icon.classList.remove('bx-chevron-up');
+          icon.classList.add('bx-chevron-down');
+        }
+      });
+    });
+
+    // Testimonial Slider
+    const slider = document.getElementById('sliderContainer');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    let currentIndex = 0;
+    const totalSlides = slider.children.length;
+
+    function updateSlider() {
+      slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+      updateSlider();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % totalSlides;
+      updateSlider();
+    });
+
+    // Auto slide every 6 seconds
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % totalSlides;
+      updateSlider();
+    }, 6000);
+  </script>
+
+</body>
+</html>
