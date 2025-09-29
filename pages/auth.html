@@ -4,18 +4,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sign Up / Login — Hirelance</title>
-  <!-- Tailwind -->
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Boxicons -->
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
   <!-- AOS -->
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
     body { font-family: 'Inter', sans-serif; }
-    .role-card:hover { transform: translateY(-4px); box-shadow: 0 6px 16px -2px rgba(139, 92, 246, 0.25); }
-    .role-selected { border-color: #8b5cf6; background-color: #f3f4ff; }
+    .role-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 16px -2px rgba(139, 92, 246, 0.25);
+    }
+    .role-selected {
+      border-color: #8b5cf6;
+      background-color: #f3f4ff;
+    }
   </style>
 </head>
 <body class="bg-gradient-to-br from-purple-50 to-pink-50 min-h-screen flex flex-col">
@@ -29,11 +35,11 @@
     <a href="index.html" class="text-purple-600 hover:underline font-medium">← Home</a>
   </nav>
 
-  <!-- Main -->
+  <!-- Main Content -->
   <main class="flex-grow flex items-center justify-center px-4 py-8">
     <div class="w-full max-w-4xl bg-white rounded-2xl shadow-xl overflow-hidden" data-aos="fade-up">
       <div class="md:flex">
-        <!-- Left: Info -->
+        <!-- Left: Info Panel -->
         <div class="md:w-2/5 bg-gradient-to-br from-purple-600 to-pink-600 text-white p-8 hidden md:flex flex-col justify-center items-center text-center">
           <i class='bx bx-shield-alt text-6xl mb-6'></i>
           <h2 class="text-2xl font-bold mb-3">Privacy by Default</h2>
@@ -42,7 +48,7 @@
           </p>
         </div>
 
-        <!-- Right: Form -->
+        <!-- Right: Auth Form -->
         <div class="md:w-3/5 p-6 sm:p-8">
           <div class="text-center mb-6">
             <h1 class="text-2xl sm:text-3xl font-bold text-gray-800">Welcome to Hirelance</h1>
@@ -116,7 +122,7 @@
   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 
   <script>
-    // 👇 REPLACE WITH YOUR FIREBASE CONFIG
+    // ✅ Your Firebase Config (from Firebase Console)
     const firebaseConfig = {
       apiKey: "AIzaSyDh9DHlWPEg2f4q8gBteDFzST6GS4O9e_4",
       authDomain: "freelance-d1d41.firebaseapp.com",
@@ -153,7 +159,7 @@
       });
     });
 
-    // Toggle between Sign Up / Login
+    // Toggle Sign Up / Login
     toggleAuthLink.addEventListener('click', (e) => {
       e.preventDefault();
       isLoginMode = !isLoginMode;
@@ -163,7 +169,7 @@
       authForm.querySelector('button').textContent = isLoginMode ? 'Log In' : 'Sign Up';
     });
 
-    // Generate encryption key (simulated)
+    // Generate simulated encryption key
     function generateEncryptionKey() {
       const array = new Uint8Array(32);
       crypto.getRandomValues(array);
@@ -172,7 +178,7 @@
 
     // Save user profile to Firestore
     async function saveUserProfile(user, role) {
-      const publicKey = generateEncryptionKey(); // Simulated public key
+      const publicKey = generateEncryptionKey();
       await db.collection('users').doc(user.uid).set({
         uid: user.uid,
         email: user.email,
@@ -203,14 +209,13 @@
           await saveUserProfile(userCredential.user, selectedRole);
         }
 
-        // Redirect based on role
         const userDoc = await db.collection('users').doc(userCredential.user.uid).get();
         const role = userDoc.data()?.role || 'freelancer';
         window.location.href = role === 'client' ? 'dashboard-client.html' : 'dashboard-freelancer.html';
 
       } catch (error) {
-        console.error(error);
-        alert(error.message || 'Authentication failed.');
+        console.error('Auth Error:', error);
+        alert(error.message || 'Authentication failed. Please try again.');
       }
     });
 
@@ -220,15 +225,14 @@
       try {
         const result = await auth.signInWithPopup(provider);
         if (!isLoginMode) {
-          // New user — prompt for role (simplified: default to freelancer)
           await saveUserProfile(result.user, selectedRole || 'freelancer');
         }
         const userDoc = await db.collection('users').doc(result.user.uid).get();
         const role = userDoc.data()?.role || 'freelancer';
         window.location.href = role === 'client' ? 'dashboard-client.html' : 'dashboard-freelancer.html';
       } catch (error) {
-        console.error(error);
-        alert('Google sign-in failed.');
+        console.error('Google Sign-In Error:', error);
+        alert('Google sign-in failed. Please try again.');
       }
     });
 
@@ -244,8 +248,8 @@
         const role = userDoc.data()?.role || 'freelancer';
         window.location.href = role === 'client' ? 'dashboard-client.html' : 'dashboard-freelancer.html';
       } catch (error) {
-        console.error(error);
-        alert('GitHub sign-in failed.');
+        console.error('GitHub Sign-In Error:', error);
+        alert('GitHub sign-in failed. Please try again.');
       }
     });
 
